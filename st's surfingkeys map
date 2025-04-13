@@ -1,0 +1,13 @@
+// surfingkeys st personal search engine alias
+api.addSearchAlias('b', 'bilibili', 'https://search.bilibili.com/all?keyword=', 's', 'https://search.bilibili.com/all?keyword=', function(response) {
+    var res = JSON.parse(response.text);
+    return res.map(function(r){
+        return r.phrase;
+    });
+});
+api.addSearchAlias('m', 'douban', 'https://www.douban.com/search?source=suggest&q=', 's', 'https://www.douban.com/search?source=suggest&q=', function(response) {
+    var res = JSON.parse(response.text);
+    return res.map(function(r){
+        return r.phrase;
+    });
+});
