@@ -5,7 +5,15 @@ api.addSearchAlias('b', 'bilibili', 'https://search.bilibili.com/all?keyword=', 
         return r.phrase;
     });
 });
+
 api.addSearchAlias('m', 'douban', 'https://www.douban.com/search?source=suggest&q=', 's', 'https://www.douban.com/search?source=suggest&q=', function(response) {
+    var res = JSON.parse(response.text);
+    return res.map(function(r){
+        return r.phrase;
+    });
+});
+
+api.addSearchAlias('r', '小红书', 'https://www.xiaohongshu.com/search_result?keyword=', 's', 'https://www.xiaohongshu.com/search_result?keyword=', function(response) {
     var res = JSON.parse(response.text);
     return res.map(function(r){
         return r.phrase;
