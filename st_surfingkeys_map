@@ -1,4 +1,12 @@
 // surfingkeys st personal search engine alias
+// G:xyg688; b:bilibili; m:douban; r:小红书; 
+api.addSearchAlias('G', 'xyg688game', 'https://www.xyg688.com/?s=', 's', 'https://www.xyg688.com/?s=', function(response) {
+    var res = JSON.parse(response.text);
+    return res.map(function(r){
+        return r.phrase;
+    });
+});
+
 api.addSearchAlias('b', 'bilibili', 'https://search.bilibili.com/all?keyword=', 's', 'https://search.bilibili.com/all?keyword=', function(response) {
     var res = JSON.parse(response.text);
     return res.map(function(r){
