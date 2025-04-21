@@ -1,5 +1,13 @@
 // surfingkeys st personal search engine alias
-// G:xyg688; b:bilibili; m:douban; r:小红书; 
+// G:xyg688; b:bilibili; m:豆瓣; r:小红书; t:淘宝
+
+api.addSearchAlias('t', 'taobao', 'https://s.taobao.com/search?q=', 's', 'https://s.taobao.com/search?q=', function(response) {
+    var res = JSON.parse(response.text);
+    return res.map(function(r){
+        return r.phrase;
+    });
+});
+
 api.addSearchAlias('G', 'xyg688game', 'https://www.xyg688.com/?s=', 's', 'https://www.xyg688.com/?s=', function(response) {
     var res = JSON.parse(response.text);
     return res.map(function(r){
